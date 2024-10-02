@@ -9,7 +9,7 @@ Larissa Gonçalves da Silva   RA: 22.222.
 
 
 ## Descrição das coleções usadas para armazenar os dados  
-
+```json
 - Coleção Aluno
   {
   RA: <int>
@@ -100,6 +100,8 @@ Larissa Gonçalves da Silva   RA: 22.222.
   nome_curso: <varchar>
   }
 
+
+```json
 
 
 
