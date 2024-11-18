@@ -1,0 +1,20 @@
+db.professor.aggregate([
+  { $match: { "chefe_dep": true } },
+  { 
+    $lookup: {
+      from: "professor_departamento", 
+      localField: "codigo_prof", 
+      foreignField: "codigo_prof", 
+      as: "departamento" 
+    }
+  },
+  { 
+    $unwind: "$departamento"
+  },
+  {
+    $project: {
+      "nome_prof": "$nome_prof", 
+      "nome_dep": "$departamento.nome_dep"
+    }
+  }
+])
