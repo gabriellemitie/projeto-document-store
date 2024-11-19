@@ -21,10 +21,12 @@ Larissa Gonçalves da Silva   RA: 22.224.022-8
   {
   RA: <int>
   nome_aluno: <varchar>
-  ano_matricula: <int>  
+  ano_matricula: <int>
   id_curso: <objectID>
   codigo_disc: <objectID>
   id_tcc: <int>
+  historico_escolar: <array>
+  matriz_curricular: <array>
   }
 
 
@@ -100,11 +102,14 @@ Larissa Gonçalves da Silva   RA: 22.224.022-8
   RA: <objectID>
   }
 
-
-   - Coleção curso
+ - Coleção curso
   {
   id_curso: <int>
   nome_curso: <varchar>
+  departamento: <object>
+  disciplinas: <array>
+  matriz_curricular: <array>
+  professores: <array>
   }
 
 
