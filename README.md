@@ -22,11 +22,26 @@ Larissa Gonçalves da Silva   RA: 22.224.022-8
   RA: <int>
   nome_aluno: <varchar>
   ano_matricula: <int>
-  id_curso: <objectID>
-  codigo_disc: <objectID>
+  curso: <object> --> vem da coleção Curso
+    id_curso: <objectID> --> coleção Curso
+    nome_curso: <varchar>
+  disciplinas: <array> --> vem da coleção Disciplina; é um array de objetos, ou seja, várias disciplinas
+  object
+    codigo_disc: <objectID> --> coleção Disciplina
+    nome_disc: <varchar>
+    ano_disc: <int>
+    codigo_prof: <varchar>
   id_tcc: <int>
-  historico_escolar: <array>
-  matriz_curricular: <array>
+  historico_escolar: <array> --> retorna array de objetos
+    object 
+      nota: <numeric>
+      semestre_cursado: <int>
+      ano_cursado: <int>
+  matriz_curricular: <array> --> array de objetos
+    object
+      id_matriz: <varchar>
+      semestre_aprovado: <int>
+      ano_aprovado: <int>
   }
 
 
@@ -36,15 +51,15 @@ Larissa Gonçalves da Silva   RA: 22.224.022-8
   semestre_cursado: <int>
   ano_cursado: <int>  
   RA: <objectID>
-  codigo_disc: <objectID>
+  codigo_disc: <objectID> --> coleçõ Disciplina
   }
 
   - Coleção HistoricoDisc
   {
   ano_ministrado: <int>
   semestre_ministrado: <int>
-  codigo_prof: <objectID>  
-  codigo_disc: <objectID>
+  codigo_prof: <objectID>  --> coleção Professor
+  codigo_disc: <objectID> --> coleção Disciplina
   }
 
 
@@ -54,8 +69,8 @@ Larissa Gonçalves da Silva   RA: 22.224.022-8
   nome_disc: <varchar>
   ano_disc: <int>
   semestre_disc: <int>
-  codigo_prof: <objectID>
-  id_curso: <objectID>  
+  codigo_prof: <objectID> --> coleção Professor 
+  id_curso: <objectID>  --> coleção Curso
   
   }
 
@@ -64,15 +79,15 @@ Larissa Gonçalves da Silva   RA: 22.224.022-8
   id_matriz: <int>
   semestre_aprovado: <int>
   ano_aprovado: <int>  
-  id_curso: <objectID>
-  codigo_disc: <objectID>
+  id_curso: <objectID> --> coleção Curso
+  codigo_disc: <objectID> --> coleção Disciplina
   }
   
 
   - Coleção Formados
   {
-  RA: <objectID>
-  id_matriz: <objectID>
+  RA: <objectID>  --> coleção Aluno
+  id_matriz: <objectID> --> coleção matrizcurricular
   }
 
 
@@ -80,9 +95,9 @@ Larissa Gonçalves da Silva   RA: 22.224.022-8
   {
   nome_dep: <varchar>
   codigo_dep: <varchar>
-  codigo_prof: <objectID>
-  codigo_disc: <objectID>
-  id_curso: <objectID>   
+  codigo_prof: <objectID> --> coleção Professor
+  codigo_disc: <objectID> --> coleção Disciplina
+  id_curso: <objectID>   --> coleção Curso
   }
 
 
@@ -91,27 +106,60 @@ Larissa Gonçalves da Silva   RA: 22.224.022-8
   codigo_prof: <int>  
   nome_prof: <varchar>
   chefe_dep: <boolean>
-  id_curso: <objectID>
-  id_tcc: <objectID>
+  id_curso: <objectID> --> coleção Curso
+  id_tcc: <objectID> --> coleção TCC
+  departamento: <object> --> coleção Departamento
+    nome_dep: <varchar>
+  disciplinas: <array> --> array de objetos
+    codigo: <varchar>
+    nome: <varchar>
+  historico_disciplinas: <array>
+    codigo_disc: <varchar>
+    nome_disc: <varchar>
+    semestre_ministrado: <int>
+    ano_ministrado: <int>
  }
 
 
   - Coleção TCC
   {
   id_tcc: <int>
-  RA: <objectID>
+  RA: <objectID> --> coleção Aluno
   }
 
  - Coleção curso
   {
   id_curso: <int>
   nome_curso: <varchar>
-  departamento: <object>
-  disciplinas: <array>
-  matriz_curricular: <array>
-  professores: <array>
+  departamento: <object> -> vem da coleção Departamento
+    codigo_dep: <varchar>
+    nome_dep: <varchar>  
+  disciplinas: <array> --> coleção Disciplinas; array de objetos
+    object
+      codigo_disc: <varchar>
+      nome_disc: <varchar>
+      ano_disc: <int>
+      codigo_prof: <varchar>
+  matriz_curricular: <array> --> array de objetos
+    objeto
+      id_matriz: <varchar>
+      semestre_aprovado: <int>
+      ano_aprovado: <int>
+  professores: <array> --> array de objetos
+    object
+      codigo_prof: <varchar>
+      nome_prof: <varchar>
   }
+```
 
+## Exemplo coleções
+
+### Aluno
+![image](https://github.com/user-attachments/assets/a9be7e33-4f73-446f-be77-c530d38991cf)  
+
+### Curso  
+
+![image](https://github.com/user-attachments/assets/d0533ce2-22ba-4602-b2a4-3049b647a4c8)
 
 
 
