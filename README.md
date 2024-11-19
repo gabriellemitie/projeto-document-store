@@ -159,7 +159,11 @@ Larissa Gonçalves da Silva   RA: 22.224.022-8
 
 ### Curso  
 
-![image](https://github.com/user-attachments/assets/d0533ce2-22ba-4602-b2a4-3049b647a4c8)
+![image](https://github.com/user-attachments/assets/d0533ce2-22ba-4602-b2a4-3049b647a4c8)  
+
+### Professor  
+![image](https://github.com/user-attachments/assets/50cdc1e7-f173-451d-81e9-83b9a19b1a39)
+
 
 
 
