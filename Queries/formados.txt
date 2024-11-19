@@ -1,0 +1,39 @@
+db.matriz.aggregate([
+  { 
+    $match: { 
+      "semestre_aprovado": 2, // Semestre aprovado
+      "ano_aprovado": 2008 // Ano aprovado
+    } 
+  },
+  { 
+    $lookup: {
+      from: "formados", // Nome da coleção de formados
+      localField: "id_matriz", // Campo da coleção matriz
+      foreignField: "id_matriz", // Campo correspondente na coleção formados
+      as: "formados" // Alias para armazenar os resultados da junção
+    }
+  },
+  { 
+    $unwind: "$formados" // Desfaz o array de formados após o lookup
+  },
+  { 
+    $lookup: {
+      from: "aluno", // Nome da coleção de alunos
+      localField: "formados.ra", // Campo da coleção formados (RA)
+      foreignField: "ra", // Campo correspondente na coleção aluno (RA)
+      as: "aluno_info" // Alias para armazenar os resultados da junção
+    }
+  },
+  { 
+    $unwind: "$aluno_info" // Desfaz o array de alunos após o lookup
+  },
+  { 
+    $project: {
+      "ra": "$formados.ra", // Exibe o RA do aluno
+      "nome_aluno": "$aluno_info.nome_aluno", // Exibe o nome do aluno da coleção aluno
+      "id_matriz": 1, // Exibe o id da matriz
+      "semestre_aprovado": 1, // Exibe o semestre aprovado
+      "ano_aprovado": 1 // Exibe o ano aprovado
+    } 
+  }
+])
